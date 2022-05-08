@@ -1,6 +1,6 @@
 						package com.saitej.springsecuritymysql.service;
 
-import com.saitej.springsecuritymysql.config.UserPrinciple;
+import com.saitej.springsecuritymysql.config.MyPrinciple;
 import com.saitej.springsecuritymysql.model.User;
 import com.saitej.springsecuritymysql.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,11 +17,11 @@ public class MyUserDetailsService implements UserDetailsService {
     private UserRepository repo;
 
     @Override
-    public UserPrinciple loadUserByUsername(String username) throws UsernameNotFoundException {
+    public MyPrinciple loadUserByUsername(String username) throws UsernameNotFoundException {
 
         Optional<User> byUsername = repo.findByUsername(username);
         byUsername.orElseThrow(()->new UsernameNotFoundException(byUsername+"not found"));
 
-        return new UserPrinciple(byUsername.get());
+        return new MyPrinciple(byUsername.get());
     }
 }

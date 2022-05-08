@@ -10,12 +10,12 @@ import java.util.Collection;
 import java.util.Collections;
 
 
-public class UserPrinciple implements UserDetails {
+public class MyPrinciple implements UserDetails {
 
     private static final long serialVersionUID = 1L;
     private User user;
 
-    public UserPrinciple(User user) {
+    public MyPrinciple(User user) {
         this.user = user;
     }
     @Override
